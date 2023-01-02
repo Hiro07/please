@@ -1,5 +1,5 @@
 /*========================================
- *    please.c: please command version 1.0.0
+ *    please.c: please command version 1.0.1
  *        Copyright 2023
  *                  Hiroyuki Kikuchi (hjfk07@gmail.com)
  *        Last Modified: 2023/01/02

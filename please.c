@@ -19,9 +19,10 @@
 #define BUF_SIZE 1024
 
 int main(int argc, const char *argv[]) {
+    int i;
+
     // debug args
     /*
-    int i;
     printf("argc: %d¥r¥n", argc);
     for(i=0; i<argc; i++) {
         printf("argv[%d]: %s¥n", i, argv[i]);

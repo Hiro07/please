@@ -20,7 +20,8 @@
   Pass through the result of ls command. This is like "List (the files), please"
   
 ## DOWNLOAD
-  for Apple Silicon Mac (Mach-O 64-bit executable arm64) : <a id="raw-url" href="https://github.com/Hiro07/please/releases/download/v1.0.0/please">Download FILE</a>
+  Executable binaries
+    for Apple Silicon Mac (Mach-O 64-bit executable arm64) : <a id="raw-url" href="https://github.com/Hiro07/please/releases/download/v1.0.0/please">Download FILE</a>
 
 ## Copyright
   2023 Hiroyuki Kikuchi (hjfk07@gmail.com)

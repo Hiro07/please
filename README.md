@@ -24,3 +24,7 @@
 
 ## Copyright
   2023 Hiroyuki Kikuchi (hjfk07@gmail.com)
+
+## MORE DETAILS
+  <a href="https://hilog07.blogspot.com/2022/02/blog-post.html">Joke Command / Meme Command : please
+</a>

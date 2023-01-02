@@ -15,7 +15,7 @@
   Return the result of ls command.
 
 ## DOWNLOAD
-  for M1 Mac (Mach-O 64-bit executable arm64) : <a id="raw-url" href="https://raw.githubusercontent.com/Hiro07/please/releases/tag/v1.0.0/please">Download FILE</a>
+  for M1 Mac (Mach-O 64-bit executable arm64) : <a id="raw-url" href="https://raw.githubusercontent.com/Hiro07/please/releases/download/v1.0.0/please">Download FILE</a>
 
 ## Copyright
   2023 Hiroyuki Kikuchi (hjfk07@gmail.com)

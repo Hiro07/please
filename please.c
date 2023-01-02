@@ -1,12 +1,12 @@
 /*========================================
  *    please.c: please command version 1.00
- *        Copyright 2022
+ *        Copyright 2023
  *                  Hiroyuki Kikuchi (hjfk07@gmail.com)
- *        Last Modified: 2022/01/02
+ *        Last Modified: 2023/01/02
  *========================================
  */
 /* please version 1.00 : the first release.                                     */
-/*                                              by Hiroyuki Kikuchi  2022/01/02 */
+/*                                              by Hiroyuki Kikuchi  2023/01/02 */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -21,7 +21,7 @@ int main(int argc, const char *argv[]) {
     } else {
         int i;
         FILE *fp;
-        int cmdSize;
+        int cmdSize = 0;
 
         for(i=1; i<argc; i++) {
             //printf("argv[%d]: %s¥n", i, argv[i]);

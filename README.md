@@ -15,4 +15,4 @@
   Return the result of ls command.
   
 ## Copyright
-  2022 Hiroyuki Kikuchi (hjfk07@gmail.com)
+  2023 Hiroyuki Kikuchi (hjfk07@gmail.com)

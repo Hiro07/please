@@ -19,3 +19,7 @@
 
 ## Copyright
   2023 Hiroyuki Kikuchi (hjfk07@gmail.com)
+
+## MORE DETAILS
+  <a href="https://github.com/Hiro07/please/releases/download/v1.0.0/please">Joke Command / Meme Command : please
+</a>

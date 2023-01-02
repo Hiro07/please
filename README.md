@@ -21,5 +21,5 @@
   2023 Hiroyuki Kikuchi (hjfk07@gmail.com)
 
 ## MORE DETAILS
-  <a href="https://github.com/Hiro07/please/releases/download/v1.0.0/please">Joke Command / Meme Command : please
+  <a href="https://hilog07.blogspot.com/2022/02/blog-post.html">Joke Command / Meme Command : please
 </a>

@@ -1,30 +1,49 @@
 /*========================================
- *    please.c: please command version 1.00
+ *    please.c: please command version 1.0.0
  *        Copyright 2023
  *                  Hiroyuki Kikuchi (hjfk07@gmail.com)
  *        Last Modified: 2023/01/02
  *========================================
  */
-/* please version 1.00 : the first release.                                     */
+/* please version 1.0.0 : the first release.                                    */
 /*                                              by Hiroyuki Kikuchi  2023/01/02 */
+/* please version 1.0.1 : Enabled to handle pipeline input.                     */
+/*                        Changed versioning number from v1.00 to v1.0.0        */
+/*                                              by Hiroyuki Kikuchi  2023/01/03 */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 #include <time.h>
 #include <err.h>
-#define BUF_SIZE 256
+#define BUF_SIZE 1024
 
 int main(int argc, const char *argv[]) {
-    //printf("argc: %d¥r¥n", argc);
+    // debug args
+    /*
+    int i;
+    printf("argc: %d¥r¥n", argc);
+    for(i=0; i<argc; i++) {
+        printf("argv[%d]: %s¥n", i, argv[i]);
+    }
+    */
+
     if(argc < 2) {
-        printf("OK.");
+        if (!isatty(STDIN_FILENO)) {
+            // pipeline input
+            char line[BUF_SIZE];
+            while(fgets(line, sizeof(line), stdin)) {
+                printf("%s", line);
+            }
+        } else {
+            // not pipeline input
+            printf("OK.");
+        }
     } else {
-        int i;
         FILE *fp;
         int cmdSize = 0;
 
         for(i=1; i<argc; i++) {
-            //printf("argv[%d]: %s¥n", i, argv[i]);
             cmdSize += strlen(argv[i]) + 1;
         }
 

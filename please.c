@@ -1,3 +1,12 @@
+/*========================================
+ *    please.c: please command version 1.00
+ *        Copyright 2022
+ *                  Hiroyuki Kikuchi (hjfk07@gmail.com)
+ *        Last Modified: 2022/01/02
+ *========================================
+ */
+/* please version 1.00 : the first release.                                     */
+/*                                              by Hiroyuki Kikuchi  2022/01/02 */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

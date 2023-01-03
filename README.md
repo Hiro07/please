@@ -7,7 +7,7 @@
   please [command ... ]
   
 ## DESCRIPTION
-  This command executes nothing, nothing means this command executes the following arguments as a command, or passes through the pipeline input. 
+  This command executes nothing, nothing means this command executes the following arguments as command, or passes through the pipeline input.
   But you can tell "please" to any commands.
 
 ## EXAMPLES
@@ -18,6 +18,19 @@
     $ ls | please
   
   Pass through the result of *ls* command. This is like *"List (the files), please"*
+  
+
+    $ ls | please wc
+  
+  Execute *wc* (words count command) and *wc* will get the *ls* result from pipeline.
+  How this works is because of *popen(3)*'s BUG!
+
+  >   BUGS
+  >
+  >     Since the standard input of a command opened for reading shares its seek
+  >     offset with the process that called popen()
+
+  With *please* command's case, this bug fortunately and completely fits for the purpose.
   
 ## DOWNLOAD
   Executable binaries

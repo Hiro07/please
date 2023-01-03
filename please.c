@@ -1,8 +1,8 @@
 /*========================================
- *    please.c: please command version 1.0.1
+ *    please.c: please command version 1.0.2
  *        Copyright 2023
  *                  Hiroyuki Kikuchi (hjfk07@gmail.com)
- *        Last Modified: 2023/01/02
+ *        Last Modified: 2023/01/04
  *========================================
  */
 /* please version 1.0.0 : the first release.                                    */
@@ -10,6 +10,9 @@
 /* please version 1.0.1 : Enabled to handle pipeline input.                     */
 /*                        Changed versioning number from v1.00 to v1.0.0        */
 /*                                              by Hiroyuki Kikuchi  2023/01/03 */
+/* please version 1.0.2 : Fixes #2: fixed duplication of the last output line.  */
+/*                        Fixes format of source code                           */
+/*                                              by Hiroyuki Kikuchi  2023/01/04 */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -18,7 +21,8 @@
 #include <err.h>
 #define BUF_SIZE 1024
 
-int main(int argc, const char *argv[]) {
+int main(int argc, const char *argv[])
+{
     int i;
 
     // debug args
@@ -29,33 +33,42 @@ int main(int argc, const char *argv[]) {
     }
     */
 
-    if(argc < 2) {
-        if (!isatty(STDIN_FILENO)) {
+    if (argc < 2)
+    {
+        if (!isatty(STDIN_FILENO))
+        {
             // pipeline input
             char line[BUF_SIZE];
-            while(fgets(line, sizeof(line), stdin)) {
+            while (fgets(line, sizeof(line), stdin))
+            {
                 printf("%s", line);
             }
-        } else {
+        }
+        else
+        {
             // not pipeline input
             printf("OK.");
         }
-    } else {
+    }
+    else
+    {
         FILE *fp;
         int cmdSize = 0;
 
-        for(i=1; i<argc; i++) {
+        for (i = 1; i < argc; i++)
+        {
             cmdSize += strlen(argv[i]) + 1;
         }
 
         char cmd[cmdSize];
 
         /* make command */
-        for(i=1; i<argc; i++) {
+        for (i = 1; i < argc; i++)
+        {
             strcat(cmd, argv[i]);
             strcat(cmd, " ");
         }
-        //printf("cmd: %s¥r¥n", cmd);
+        // printf("cmd: %s¥r¥n", cmd);
 
         /* show welcom randomly */
         /*
@@ -66,19 +79,23 @@ int main(int argc, const char *argv[]) {
         }
         */
 
-	    if ( (fp=popen(cmd,"r")) ==NULL) {
-		    perror ("please: popen failure.");
-		    exit(EXIT_FAILURE);
-	    }
+        if ((fp = popen(cmd, "r")) == NULL)
+        {
+            perror("please: popen failure.");
+            exit(EXIT_FAILURE);
+        }
 
-	    char buf[BUF_SIZE];
-	    while (!feof(fp)) {
-		    fgets(buf, sizeof(buf), fp);
-		    printf("%s", buf);
-	    }
- 
-	    (void) pclose(fp);
- 
+        char buf[BUF_SIZE];
+        // while (!feof(fp)) {
+        //     fgets(buf, sizeof(buf), fp);
+        //     printf("%s", buf);
+        // }
+        while (fgets(buf, sizeof(buf), fp) != NULL)
+        {
+            printf("%s", buf);
+        }
+
+        (void)pclose(fp);
     }
-	exit (EXIT_SUCCESS);
+    exit(EXIT_SUCCESS);
 }

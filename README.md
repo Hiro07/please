@@ -13,11 +13,11 @@
 ## EXAMPLES
     $ please ls
   
-  Return the result of *ls* command. This can make you feel like you're saying "Please list (the files)."
+  Return the result of *ls* command. This can make you feel like you're saying *"Please list (the files)."*
 
     $ ls | please
   
-  Pass through the result of *ls* command. This is like "List (the files), please"
+  Pass through the result of *ls* command. This is like *"List (the files), please"*
   
 ## DOWNLOAD
   Executable binaries

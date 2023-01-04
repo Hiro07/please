@@ -1,5 +1,5 @@
 /*========================================
- *    please.c: please command version 1.0.2
+ *    please.c: please command version 1.0.3
  *        Copyright 2023
  *                  Hiroyuki Kikuchi (hjfk07@gmail.com)
  *        Last Modified: 2023/01/04
@@ -12,6 +12,8 @@
 /*                                              by Hiroyuki Kikuchi  2023/01/03 */
 /* please version 1.0.2 : Fixes #2: fixed duplication of the last output line.  */
 /*                        Fixes format of source code                           */
+/*                                              by Hiroyuki Kikuchi  2023/01/04 */
+/* please version 1.0.3 : Fixes #3: fixed return code (exit code).              */
 /*                                              by Hiroyuki Kikuchi  2023/01/04 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -49,6 +51,7 @@ int main(int argc, const char *argv[])
             // not pipeline input
             printf("OK.");
         }
+        exit(EXIT_SUCCESS);
     }
     else
     {
@@ -95,7 +98,15 @@ int main(int argc, const char *argv[])
             printf("%s", buf);
         }
 
-        (void)pclose(fp);
+        // get exit code and return it as a please command's exit code.
+        int ret = pclose(fp);
+        if (WIFEXITED(ret))
+        {
+            exit(WEXITSTATUS(ret));
+        }
+        else
+        {
+            exit(EXIT_FAILURE);
+        }
     }
-    exit(EXIT_SUCCESS);
 }

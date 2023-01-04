@@ -10,6 +10,10 @@
   This command executes nothing, nothing means this command executes the following arguments as command, or passes through the pipeline input.
   But you can tell "please" to any commands.
 
+## EXIT STATUS
+  - when no arguments : returns 0
+  - when arguments exist : returns the following command's exit code. when opening following command was failed, this returns 1. and when following command did not terminate normally, this returns 1.
+
 ## EXAMPLES
     $ please ls
   

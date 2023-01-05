@@ -1,0 +1,69 @@
+.\"
+.\"  Copyright 2023 Hiroyuki Kikuchi (hjfk07@gmail.com)
+.\"
+.\"	@(#)please.1
+.\"
+.TH PLEASE 1 "Janualy 5, 2023"
+.SH NAME
+please \- executes nothing, but you can tell "please" to any commands.
+
+.SH SYNOPSIS
+.B please
+[
+.I ...
+]
+.SH DESCRIPTION
+This command executes nothing, nothing means this command executes the following arguments as command, 
+or passes through the pipeline input. But you can tell "please" to any commands.
+
+.SH EXIT STATUS
+when no arguments : returns 0
+.PP
+when arguments exist : returns the following command's exit code. when opening following command was failed, 
+this returns 1. and when following command did not terminate normally, this returns 1.
+
+.SH EXAMPLES
+.PP
+.RS 6
+$ please ls
+.RE
+.PP
+Return the result of ls(1) command. This can make you feel like you're saying 
+.I "Please list (the files)."
+.PP
+.RS 6
+$ ls | please
+.RE
+.PP
+Pass through the result of ls(1) command. This is like 
+.I "List (the files), please"
+.PP
+.RS 6
+$ ls | please wc
+.RE
+.PP
+Execute wc(1) (words count command) and wc(1) will get the ls(1) result from pipeline.
+.PP
+How this works is because of popen(3) function:
+.PP
+.RS 6
+POPEN(3)
+.RE
+.RS 12
+.B ...
+the command's standard input is the same as that of the process that called popen(). ...
+.RE
+.PP
+With 
+.B please
+command's case, this function fortunately and completely fits for the purpose.
+
+.SH AUTHOR
+Hiroyuki Kikuchi (hjfk07@gmail.com)
+
+.SH MORE DETAILS
+Joke Command / Meme Command : please
+.\" リンクの書き方が不明だったため両方書いておく。
+.URL https://hilog07.blogspot.com/2022/02/blog-post.html "Open Link"
+.UR https://hilog07.blogspot.com/2022/02/blog-post.html
+.UE

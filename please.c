@@ -1,8 +1,8 @@
 /*========================================
- *    please.c: please command version 1.0.3
+ *    please.c: please command version 1.0.4
  *        Copyright 2023
  *                  Hiroyuki Kikuchi (hjfk07@gmail.com)
- *        Last Modified: 2023/01/04
+ *        Last Modified: 2023/01/05
  *========================================
  */
 /* please version 1.0.0 : the first release.                                    */
@@ -15,6 +15,8 @@
 /*                                              by Hiroyuki Kikuchi  2023/01/04 */
 /* please version 1.0.3 : Fixes #3: fixed return code (exit code).              */
 /*                                              by Hiroyuki Kikuchi  2023/01/04 */
+/* please version 1.0.4 : Fixes #4: fixed return (new line) special character.  */
+/*                                              by Hiroyuki Kikuchi  2023/01/05 */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -29,9 +31,9 @@ int main(int argc, char *argv[])
 
     // debug args
     /*
-    printf("argc: %d¥r¥n", argc);
+    printf("argc: %d\n", argc);
     for(i=0; i<argc; i++) {
-        printf("argv[%d]: %s¥n", i, argv[i]);
+        printf("argv[%d]: %s\n", i, argv[i]);
     }
     */
 
@@ -49,7 +51,7 @@ int main(int argc, char *argv[])
         else
         {
             // not pipeline input
-            printf("OK.");
+            printf("OK.\n");
         }
         exit(EXIT_SUCCESS);
     }
@@ -71,14 +73,14 @@ int main(int argc, char *argv[])
             strcat(cmd, argv[i]);
             strcat(cmd, " ");
         }
-        // printf("cmd: %s¥r¥n", cmd);
+        // printf("cmd: %s\n", cmd);
 
         /* show welcom randomly */
         /*
         srand((unsigned int)time(NULL));
         int rnd = rand();
         if(rnd % 2 == 0) {
-            printf("You're welcome. The execution result is below.");
+            printf("You're welcome. The execution result is below.\n");
         }
         */
 
